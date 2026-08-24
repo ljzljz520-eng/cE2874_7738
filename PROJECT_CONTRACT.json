@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "metrics": {
+    "production_loc": 2499,
+    "production_files": 30,
+    "production_packages": 13,
+    "test_files": 13,
+    "production_functions": 157,
+    "decision_points": 335
+  },
+  "persistence": {
+    "module": "go.etcd.io/bbolt",
+    "entities": [
+      "Patient",
+      "Record",
+      "Batch",
+      "Audit",
+      "Profile",
+      "Reminder"
+    ],
+    "reopen_test": "TestPersistenceSurvivesReopen"
+  },
+  "workflows": [
+    {
+      "steps": [
+        "accept patient training",
+        "validate patient and record",
+        "persist training record",
+        "confirm refreshed snapshot"
+      ],
+      "test": "TestWorkflowAccept"
+    },
+    {
+      "steps": [
+        "queue reminder",
+        "process reminder",
+        "review reminder",
+        "publish reminder"
+      ],
+      "test": "TestWorkflowPublish"
+    },
+    {
+      "steps": [
+        "open patient snapshot",
+        "update batch view",
+        "close snapshot",
+        "reopen persisted state"
+      ],
+      "test": "TestWorkflowReopen"
+    }
+  ]
+}

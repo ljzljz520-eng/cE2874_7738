@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>康复训练随访台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><strong>康复训练随访台</strong><span id="connection">离线模式</span></header>
+  <main>
+    <section class="toolbar"><label>科室 <select id="department"><option>Rehabilitation</option></select></label><label>搜索 <input id="query" placeholder="患者姓名或诊断"></label><button id="refresh">刷新汇总</button></section>
+    <section class="overview" id="overview"></section>
+    <section class="patients"><h1>患者训练状态</h1><div id="patient-list" class="patient-list"></div></section>
+    <dialog id="detail"><button id="close" class="close">关闭</button><div id="detail-content"></div></dialog>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
